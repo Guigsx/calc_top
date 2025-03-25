@@ -85,6 +85,16 @@ document.addEventListener("DOMContentLoaded", function () {
         `
     }
 
+    // Permitir a remoção de números ao clicar na listaOriginal
+    listaOriginal.addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+            const index = event.target.getAttribute("data-index")
+            valores.splice(index, 1)
+            atualizarResultados()
+        }
+    })
+
+    // Manipulação da reta de aproximação
     const inputX = document.getElementById("inputX")
     const inputY = document.getElementById("inputY")
     const btnAdicionar = document.getElementById("btnAdicionar")
@@ -140,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const m = (somaXY - n * mediaX * mediaY) / (somaX2 - n * mediaX * mediaX)
         const b = mediaY - m * mediaX
 
-        resultadoReta.innerHTML = `Equação da reta: y = ${m}x + ${b}`
+        resultadoReta.innerHTML = `Equação da reta: y = ${m.toFixed(4)}x + ${b.toFixed(4)}`
     }
 
     btnAdicionar.addEventListener("click", adicionarPonto)
