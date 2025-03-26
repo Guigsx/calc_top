@@ -156,4 +156,30 @@ document.addEventListener("DOMContentLoaded", function () {
     btnAdicionar.addEventListener("click", adicionarPonto)
     inputX.addEventListener("keypress", (event) => { if (event.key === "Enter") inputY.focus() })
     inputY.addEventListener("keypress", (event) => { if (event.key === "Enter") adicionarPonto() })
+
+    const inputX1 = document.getElementById("inputX1")
+    const inputY1 = document.getElementById("inputY1")
+    const inputX2 = document.getElementById("inputX2")
+    const inputY2 = document.getElementById("inputY2")
+    const btnCalcularReta = document.getElementById("btnCalcularReta")
+    const resultadoReta2 = document.getElementById("resultadoReta2")
+
+    function calcularRetaDoisPontos() {
+        const x1 = parseFloat(inputX1.value.trim())
+        const y1 = parseFloat(inputY1.value.trim())
+        const x2 = parseFloat(inputX2.value.trim())
+        const y2 = parseFloat(inputY2.value.trim())
+
+        if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) {
+            resultadoReta2.innerHTML = "Por favor, insira as coordenadas corretamente."
+            return
+        }
+
+        const m = (y2 - y1) / (x2 - x1)
+        const b = y1 - m * x1
+
+        resultadoReta2.innerHTML = `Equação da reta: y = ${m.toFixed(4)}x + ${b.toFixed(4)}`
+    }
+
+    btnCalcularReta.addEventListener("click", calcularRetaDoisPontos)
 })
