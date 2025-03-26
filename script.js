@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         `
     }
 
-    // Permitir a remoção de números ao clicar na listaOriginal
     listaOriginal.addEventListener("click", function (event) {
         if (event.target.tagName === "LI") {
             const index = event.target.getAttribute("data-index")
@@ -94,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     })
 
-    // Manipulação da reta de aproximação
     const inputX = document.getElementById("inputX")
     const inputY = document.getElementById("inputY")
     const btnAdicionar = document.getElementById("btnAdicionar")
