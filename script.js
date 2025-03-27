@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const m = (y2 - y1) / (x2 - x1)
         const b = y1 - m * x1
 
-        resultadoReta2.innerHTML = `Equação da reta: y = ${m.toFixed(4)}x + ${b.toFixed(4)}`
+        resultadoReta2.innerHTML = `Equação da reta: y = ${m.toFixed(4)}x ${b.toFixed(4)}`
     }
 
     btnCalcularReta.addEventListener("click", calcularRetaDoisPontos)
